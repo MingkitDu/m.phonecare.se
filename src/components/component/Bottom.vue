@@ -50,7 +50,9 @@ export default {
     left: 0;
     display: flex;
     box-shadow: 0 -0.266667vw 0.533333vw rgba(0,0,0,.1);
-    padding: px2rem(20) 0 px2rem(30) 0;
+    padding: px2rem(14) 0 px2rem(56) 0;
+    // padding-bottom: constant(safe-area-inset-bottom);
+    // padding-bottom: constant(safe-area-inset-bottom);
     .m-bottom-btn {
       width: 25%;
       display: flex;

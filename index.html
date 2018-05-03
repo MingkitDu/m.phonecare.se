@@ -10,7 +10,15 @@
     <link rel="apple-touch-icon" href="https://www.phonecare.se/skin/frontend/tv_bigboom_package/tv_bigboom1/apple-touch-phonecare-180x180.png">
     <link rel="stylesheet" href="./static/font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="./static/hotcss/hotcss.js"></script>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, viewport-fit=cover">
+    <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+    <style>
+      body {
+        padding-top: env(safe-area-inset-top);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>

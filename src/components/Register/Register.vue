@@ -367,6 +367,17 @@
             text-indent: px2rem(10);
             margin-bottom: px2rem(10);
           }
+          .addClass {
+            height: px2rem(46);
+            border: none;
+            border-bottom: px2rem(2) solid #fc6908;
+            ;
+            width: 100%;
+            outline: none;
+            font-size: px2rem(30);
+            text-indent: px2rem(10);
+            margin-bottom: px2rem(10);
+          }
           span {
             color: red;
           }

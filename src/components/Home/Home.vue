@@ -30,7 +30,7 @@ export default {
     'm-header': header,
     // 'm-search': search,
     'm-bottom': bottom,
-    'm-banner': banner,
+    'm-banner': banner, 
     'm-tagbar': tagbar
   }
 

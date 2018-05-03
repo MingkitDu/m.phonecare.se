@@ -12,7 +12,7 @@
                 <p>
                   E-postadresspsan <span> *</span>
                 </p>
-              <input type="text" v-model="user.username.name">
+              <input :class=" {'noClass':user.username.addClass ,'addClass':user.username.removeClass }" type="text" v-model="user.username.name" @focus="loginSetClass()" @blur="loginRemoveClass()" >
               <p class="checkout" v-show="user.username.isShow">
                 <i class="fa fa-angle-up" aria-hidden="true"></i>
                 Detta är ett obligatoriskt fält.
@@ -22,7 +22,7 @@
                 <p>
                   Lösenord <span> *</span>
                 </p>
-              <input type="password" v-model="user.userpassword.password">
+              <input :class=" {'noClass':user.userpassword.addClass ,'addClass':user.userpassword.removeClass }" type="password" v-model="user.userpassword.password" @focus="passwordSetClass()" @blur="passwordRemoveClass()">
               <p class="checkout" v-show="user.userpassword.isShow">
                 <i class="fa fa-angle-up" aria-hidden="true"></i>
                 Detta är ett obligatoriskt fält.
@@ -55,11 +55,15 @@
         user: {
           username: {
             name: '',
-            isShow: false
+            isShow: false,
+            addClass:true,
+            removeClass:false
           },
           userpassword: {
             password: '',
-            isShow: false
+            isShow: false,
+            addClass:true,
+            removeClass:false
           }
         }
       }
@@ -68,13 +72,29 @@
       // ...mapState(['userisLogin'])
     },
     methods: {
+      loginSetClass() {
+        this.user.username.addClass = false;
+        this.user.username.removeClass = true;
+      },
+      loginRemoveClass() {
+        this.user.username.addClass = true;
+        this.user.username.removeClass = false;
+      },
+      passwordSetClass() {
+        this.user.userpassword.addClass = false;
+        this.user.userpassword.removeClass = true;
+      },
+      passwordRemoveClass() {
+        this.user.userpassword.addClass = true;
+        this.user.userpassword.removeClass = false;
+      },
       login() {
         var checkEmail =/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
         // console.log(checkEmail.test(this.user.username.name))
         if (!checkEmail.test(this.user.username.name)) {
           this.user.username.isShow = true
           // console.log(1)
-        } else if (this.user.userpassword.password == ''){
+        } else if (checkEmail.test(this.user.username.name)){
           this.user.username.isShow = false
           // console.log(0)
         }
@@ -127,7 +147,7 @@
           // text-align: center;
           .for-pass {
             // text-decoration: none;
-            display: block;
+            display: inline-block;
             color: #aaaaaa;
             margin: px2rem(30) 0;
             font-size: px2rem(30);
@@ -144,12 +164,25 @@
                 color: red;
               }
             }
-            input {
+            .noClass {
               height: px2rem(46);
               border: none;
               border-radius: 0;
               // border-left: px2rem(1) solid #aaa;
               border-bottom: px2rem(2) solid #aaa; // border-left: none;
+              width: 100%;
+              outline: none;
+              font-size: px2rem(30);
+              text-indent: px2rem(10);
+              border-top-right-radius: px2rem(10);
+              border-bottom-right-radius: px2rem(10);
+            }
+            .addClass {
+              height: px2rem(46);
+              border: none;
+              border-radius: 0;
+              // border-left: px2rem(1) solid #aaa;
+              border-bottom: px2rem(2) solid #fc6908; // border-left: none;
               width: 100%;
               outline: none;
               font-size: px2rem(30);
